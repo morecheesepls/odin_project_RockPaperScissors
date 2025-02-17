@@ -50,4 +50,3 @@ function playRound(humanChoice, computerChoice) { // Logic for the response comp
 console.log(`Round ${round}`);
 playRound(humanChoice, computerChoice);
 console.log(`YOU: ${humanScore} vs COMPUTER: ${computerScore}`);
-
