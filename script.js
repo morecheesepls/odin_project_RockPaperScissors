@@ -24,20 +24,31 @@ function getHumanChoice() { // Logic for the user's selection.
 const computerChoice = getComputerSelection();
 const humanChoice = getHumanChoice();
 
-function playRound(humanChoice, computerChoice) { // Logic for the response comparisons.
-    IF (humanChoice === computerChoice) {
-        console.log(`You selected ${humanChoice} and the computer selected ${computerChoice}. This round is a tie!`);
-    } else if (humanChoice === "rock" && computerChoice === "paper") {
-        console.log(`${computerChoice} beats ${humanChoice}! You lose!`);
-        computerScore++;
-    } else if (humanChoice === "rock" && computerChoice === "scissors") {
-        console.log(`${humanChoice} beats ${computerChoice}! You win!`);
-        humanScore++;
-    } else if (humanChoice === "paper" && computerChoice === "scissors") {
-        console.log(`${computerChoice} beats ${humanChoice}! You lose!`);
-        computerScore++;
-    } else if ()
-}
-
 console.log(`You have selected: ${humanChoice}`);
 console.log(`The computer has selected: ${computerChoice}`);
+
+function playRound(humanChoice, computerChoice) { // Logic for the response comparisons.
+    if ( // Conditions for the computer to win.
+        humanChoice === "rock" && computerChoice === "paper" || 
+        humanChoice === "paper" && computerChoice === "scissors" ||
+        humanChoice === "scissors" && computerChoice === "rock") {
+        console.log(`${computerChoice} beats ${humanChoice}! You lose!`);
+        
+        computerScore++;
+
+        return computerScore;
+    } else if ( // Conditions for the user to win.
+        humanChoice === "rock" && computerChoice === "scissors" ||
+        humanChoice === "paper" && computerChoice === "rock" ||
+        humanChoice === "scissors" && computerChoice === "paper") {
+        console.log(`${humanChoice} beats ${computerChoice}! You win!`);
+        
+        humanScore++;
+
+        return humanScore;
+    } else if (humanChoice === computerChoice) { // Condition for a tie.
+        console.log(`You selected ${humanChoice} and the computer selected ${computerChoice}. This round is a tie!`)
+    }
+};
+
+console.log(`The score is currently USER: ${humanScore} to COMPUTER: ${computerScore}`);
