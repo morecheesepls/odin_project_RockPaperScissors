@@ -51,15 +51,15 @@ function playRound(humanChoice, computerChoice) { // Logic for the response comp
     }
 };
 
-console.log(playRound(humanChoice,computerChoice));
+console.log(playRound());
 
-function playGame (playRound) {
+function playGame(playRound) {
     if (humanScore < 5 && computerScore < 5) {
         console.log(`The score is currently YOU: ${humanScore} to COMPUTER: ${computerScore}`);
-        playRound();
     } else if (humanScore === 5) {
         console.log(`The score is YOU: ${humanScore} to COMPUTER: ${computerScore}. You won the game!`)
     } else if (computerScore === 5) {
         console.log(`The score is YOU: ${humanScore} to COMPUTER: ${computerScore}. The computer wins the game!`)
     };
 };
+
