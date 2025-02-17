@@ -1,5 +1,5 @@
-let humanScore = 0;
-let computerScore = 0;
+let humanScore = 0; // Initiate human score.
+let computerScore = 0; //Initiate computer score.
 
 function getComputerSelection() { // Logic for the computer's selection.
     let computerSelection = Math.floor(Math.random() * 3) + 1; // A random number is chosen between 1 and 3.
@@ -51,4 +51,15 @@ function playRound(humanChoice, computerChoice) { // Logic for the response comp
     }
 };
 
-console.log(`The score is currently USER: ${humanScore} to COMPUTER: ${computerScore}`);
+console.log(playRound(humanChoice,computerChoice));
+
+function playGame (playRound) {
+    if (humanScore < 5 && computerScore < 5) {
+        console.log(`The score is currently YOU: ${humanScore} to COMPUTER: ${computerScore}`);
+        playRound();
+    } else if (humanScore === 5) {
+        console.log(`The score is YOU: ${humanScore} to COMPUTER: ${computerScore}. You won the game!`)
+    } else if (computerScore === 5) {
+        console.log(`The score is YOU: ${humanScore} to COMPUTER: ${computerScore}. The computer wins the game!`)
+    };
+};
