@@ -1,33 +1,27 @@
-function getComputerChoice() { // Logic for the computer's selection.
-    let computerChoice = Math.floor(Math.random() * 3) + 1; // A random number is chosen between 1 and 3.
-    console.log(`A random number between 1 and 3 is selected: ${computerChoice}`);
-    if (computerChoice === 1) { // Converts the numerical selection to a string.
-        computerChoice = "Rock";
-    } else if (computerChoice === 2) {
-        computerChoice = "Paper";
-    } else if (computerChoice === 3) {
-        computerChoice = "Scissors";
+function getComputerSelection() { // Logic for the computer's selection.
+    let computerSelection = Math.floor(Math.random() * 3) + 1; // A random number is chosen between 1 and 3.
+    
+    if (computerSelection === 1) { // Converts the numerical selection to a string.
+        computerSelection = "rock";
+    } else if (computerSelection === 2) {
+        computerSelection = "paper";
+    } else if (computerSelection === 3) {
+        computerSelection = "scissors";
     };
 
-    return computerChoice;
+    return computerSelection;
 }
 
-console.log(`Computer selection stored: ${getComputerChoice()}`);
-
-// function getHumanChoice() { // Logic for the user's selection.
-//     let humanChoice = prompt("Please choose "Rock", "Paper", or "Scissors": ", " "); // Prompts the user to make a selection.
-//     console.log(`The user has selected ${humanChoice}`);
+function getHumanChoice() { // Logic for the user's selection.
+    let humanChoice = prompt("Please choose 'Rock', 'Paper', or 'Scissors': ", " ").toLowerCase(); // Prompts the user to make a selection and converts the response to lowercase.
     
-//     humanChoice = humanChoice.toLowerCase();
-//     console.log(`Converting string to lowercase: ${humanChoice}`);
-
-//     return humanChoice;
-// }
-
-// console.log(`Human selection stored: ${getHumanChoice()}`);
+    return humanChoice;
+}
 
 let humanScore = 0;
 let computerScore = 0;
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
+const computerChoice = getComputerSelection();
+const humanChoice = getHumanChoice();
 
+console.log(`You have selected: ${humanChoice}`);
+console.log(`The computer has selected: ${computerChoice}`);
