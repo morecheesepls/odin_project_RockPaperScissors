@@ -20,37 +20,32 @@ function getHumanChoice() { // Logic for the user's selection.
 
 const computerChoice = getComputerSelection();
 const humanChoice = getHumanChoice();
+let humanScore = 0;
+let computerScore = 0;
     
-function playRound(humanChoice, computerChoice) { // Logic for the response comparisons.
+let playRound = function(humanChoice, computerChoice) { // Logic for the response comparisons.
     if ( // Conditions for the computer to win.
         humanChoice === "rock" && computerChoice === "paper" || 
         humanChoice === "paper" && computerChoice === "scissors" ||
         humanChoice === "scissors" && computerChoice === "rock") {
             console.log(`${computerChoice} beats ${humanChoice}! You lose!`);
 
-            return computerScore++;
+        computerScore = ++computerScore;
+        console.log(`Plus one to the computer! COMPUTER SCORE: ${computerScore}`);
     } else if ( // Conditions for the user to win.
         humanChoice === "rock" && computerChoice === "scissors" ||
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice === "paper") {
             console.log(`${humanChoice} beats ${computerChoice}! You win!`);
             
-            return humanScore++;
+        humanScore = ++humanScore;
+        console.log(`Plus one to the human! PLAYER SCORE: ${humanScore}`);
     } else if (humanChoice === computerChoice) { // Condition for a tie.
-        console.log(`You selected ${humanChoice} and the computer selected ${computerChoice}. This round is a tie!`)
+        console.log(`You selected ${humanChoice} and the computer selected ${computerChoice}. This round is a tie!`);
+        console.log(`No one gets a point! PLAYER SCORE: ${humanScore} vs COMPUTER SCORE: ${computerScore}`);
     };
+
+    return (humanScore, computerScore);
 };
 
-let round = 0; // initiate game rounds
-let humanScore = 0; // Initiate human score
-let computerScore = 0; //Initiate computer score
-
-function playGame(round) {
-    if (round < 5) {
-        playRound(humanChoice, computerChoice);
-        return round+1;
-        };
-    
-    return round;
-};
-console.log(playGame(round));
+console.log(playRound(humanChoice, computerChoice));
