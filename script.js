@@ -24,28 +24,47 @@ let humanScore = 0;
 let computerScore = 0;
     
 let playRound = function(humanChoice, computerChoice) { // Logic for the response comparisons.
+    let winner;
+    
     if ( // Conditions for the computer to win.
         humanChoice === "rock" && computerChoice === "paper" || 
         humanChoice === "paper" && computerChoice === "scissors" ||
         humanChoice === "scissors" && computerChoice === "rock") {
-            console.log(`${computerChoice} beats ${humanChoice}! You lose!`);
-
-        computerScore = ++computerScore;
-        console.log(`Plus one to the computer! COMPUTER SCORE: ${computerScore}`);
+            winner = "player";
     } else if ( // Conditions for the user to win.
         humanChoice === "rock" && computerChoice === "scissors" ||
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice === "paper") {
-            console.log(`${humanChoice} beats ${computerChoice}! You win!`);
-            
-        humanScore = ++humanScore;
-        console.log(`Plus one to the human! PLAYER SCORE: ${humanScore}`);
+            winner = "computer";
     } else if (humanChoice === computerChoice) { // Condition for a tie.
-        console.log(`You selected ${humanChoice} and the computer selected ${computerChoice}. This round is a tie!`);
-        console.log(`No one gets a point! PLAYER SCORE: ${humanScore} vs COMPUTER SCORE: ${computerScore}`);
+        winner = "tie";
     };
 
-    return (humanScore, computerScore);
+    return winner;
 };
 
+
+
 console.log(playRound(humanChoice, computerChoice));
+
+
+
+// TEST CODE
+
+// let num = 0;
+
+// let addNum = function(num) {
+//     num = num+1;
+//     return num;
+// }
+
+// function totalNum() {
+//     num = addNum(num);
+//     num = addNum(num);
+//     num = addNum(num);
+//     num = addNum(num);
+//     num = addNum(num);
+//     return num;
+// }
+
+// console.log(totalNum());
