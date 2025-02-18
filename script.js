@@ -23,29 +23,35 @@ const humanChoice = getHumanChoice();
 let humanScore = 0;
 let computerScore = 0;
     
-let playRound = function(humanChoice, computerChoice) { // Logic for the response comparisons.
-    let winner;
-    
-    if ( // Conditions for the computer to win.
+function playRound(humanChoice, computerChoice) { // Logic for the response comparisons.
+   if ( // Conditions for the computer to win.
         humanChoice === "rock" && computerChoice === "paper" || 
         humanChoice === "paper" && computerChoice === "scissors" ||
         humanChoice === "scissors" && computerChoice === "rock") {
-            winner = "player";
+            ++humanScore;
+
+        console.log(`You win! ${humanChoice} beats ${computerChoice}! The score is now Player: ${humanScore} vs Computer: ${computerScore}`);
     } else if ( // Conditions for the user to win.
         humanChoice === "rock" && computerChoice === "scissors" ||
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice === "paper") {
-            winner = "computer";
+            ++computerScore;
+
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}! The score is now Player: ${humanScore} vs Computer: ${computerScore}`);
     } else if (humanChoice === computerChoice) { // Condition for a tie.
-        winner = "tie";
+        console.log(`It's a tie! ${computerChoice} is equal to ${humanChoice}! The score remains Player: ${humanScore} vs Computer: ${computerScore}`);
     };
 
-    return winner;
+    return humanScore;
+    return computerScore;
 };
 
-
-
 console.log(playRound(humanChoice, computerChoice));
+
+
+
+
+
 
 
 
