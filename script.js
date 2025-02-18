@@ -1,7 +1,3 @@
-let round = 1; // initiate game rounds
-let humanScore = 0; // Initiate human score
-let computerScore = 0; //Initiate computer score
-
 function getComputerSelection() { // Logic for the computer's selection.
     let computerSelection = Math.floor(Math.random() * 3) + 1; // A random number is chosen between 1 and 3.
     
@@ -24,29 +20,37 @@ function getHumanChoice() { // Logic for the user's selection.
 
 const computerChoice = getComputerSelection();
 const humanChoice = getHumanChoice();
-
+    
 function playRound(humanChoice, computerChoice) { // Logic for the response comparisons.
     if ( // Conditions for the computer to win.
         humanChoice === "rock" && computerChoice === "paper" || 
         humanChoice === "paper" && computerChoice === "scissors" ||
         humanChoice === "scissors" && computerChoice === "rock") {
-        console.log(`${computerChoice} beats ${humanChoice}! You lose!`);
-        
-        return round++ && computerScore++;
+            console.log(`${computerChoice} beats ${humanChoice}! You lose!`);
+
+            return computerScore++;
     } else if ( // Conditions for the user to win.
         humanChoice === "rock" && computerChoice === "scissors" ||
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice === "paper") {
-        console.log(`${humanChoice} beats ${computerChoice}! You win!`);
-        
-        return round++ && humanScore++;
+            console.log(`${humanChoice} beats ${computerChoice}! You win!`);
+            
+            return humanScore++;
     } else if (humanChoice === computerChoice) { // Condition for a tie.
         console.log(`You selected ${humanChoice} and the computer selected ${computerChoice}. This round is a tie!`)
-
-        return round++;
-    }
+    };
 };
 
-console.log(`Round ${round}`);
-playRound(humanChoice, computerChoice);
-console.log(`YOU: ${humanScore} vs COMPUTER: ${computerScore}`);
+let round = 0; // initiate game rounds
+let humanScore = 0; // Initiate human score
+let computerScore = 0; //Initiate computer score
+
+function playGame(round) {
+    if (round < 5) {
+        playRound(humanChoice, computerChoice);
+        return round+1;
+        };
+    
+    return round;
+};
+console.log(playGame(round));
