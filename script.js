@@ -18,7 +18,8 @@ function getHumanChoice() { // Logic for the user's selection.
     return humanChoice;
 }
 
-function playGame() {
+
+function playGame() { // Gameplay Logic
     let computerChoice = getComputerChoice();
     let humanChoice = getHumanChoice();
     let humanScore = 0;
@@ -39,11 +40,12 @@ function playGame() {
                 return (`You win! ${humanChoice} beats ${computerChoice}! The score is now Player: ${humanScore} vs Computer: ${computerScore}`);
             } else if (humanChoice === computerChoice) { // Condition for a tie.
                 return (`It's a tie! ${computerChoice} is equal to ${humanChoice}! The score remains Player: ${humanScore} vs Computer: ${computerScore}`);
-            } else {
+            } else { // Invalid Selection
                 return ("Invalid selection. Please try again.");
             };
     };
         
+        // Gameplay Rounds
         console.log('Round 1! FIGHT!!!');
         console.log(playRound(humanChoice, computerChoice));
         
@@ -59,7 +61,7 @@ function playGame() {
         console.log('Round 5! FIGHT!!!');
         console.log(playRound(getHumanChoice(), getComputerChoice()));
 
-        function winner (humanScore, computerScore) {
+        function winner (humanScore, computerScore) { // Announce Winner Logic
             if (humanScore > computerScore) {
                 return (`The game is over! The player has ${humanScore} points and the computer has ${computerScore} points. The player wins the game!`);
             } else if (humanScore < computerScore) {
