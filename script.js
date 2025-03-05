@@ -45,22 +45,6 @@ function playGame() { // Gameplay Logic
             };
     };
         
-        // Gameplay Rounds
-        console.log('Round 1! FIGHT!!!');
-        console.log(playRound(humanChoice, computerChoice));
-        
-        console.log('Round 2! FIGHT!!!');
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-        
-        console.log('Round 3! FIGHT!!!');
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-        
-        console.log('Round 4! FIGHT!!!');
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-        
-        console.log('Round 5! FIGHT!!!');
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-
         function winner (humanScore, computerScore) { // Announce Winner Logic
             if (humanScore > computerScore) {
                 return (`The game is over! The player has ${humanScore} points and the computer has ${computerScore} points. The player wins the game!`);
