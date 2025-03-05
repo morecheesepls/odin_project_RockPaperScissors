@@ -1,3 +1,11 @@
+let humanChoice;
+let gameStatusMessage;
+const messages = document.querySelector("#messages");
+
+messages.addEventListener("click", () => {
+    playGame();
+});
+
 
 
 
@@ -17,11 +25,11 @@ function getComputerChoice() { // Logic for the computer's selection.
     return computerChoice;
 }
 
-function getHumanChoice() { // Logic for the user's selection.
-    let humanChoice = prompt("Please choose 'Rock', 'Paper', or 'Scissors': ", " ").toLowerCase(); // Prompts the user to make a selection and converts the response to lowercase.
+// function getHumanChoice() { // Logic for the user's selection.
+//     let humanChoice = prompt("Please choose 'Rock', 'Paper', or 'Scissors': ", " ").toLowerCase(); // Prompts the user to make a selection and converts the response to lowercase.
 
-    return humanChoice;
-}
+//     return humanChoice;
+// }
 
 
 function playGame() { // Gameplay Logic
