@@ -32,14 +32,15 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-// Human Selection
-function getHumanChoice() {
-    buttons.forEach(button, () => {
-        button.addEventListener("click", () => {
-            console.log(button.id);
-        })
-    })
-}
+// Selection Button Event Listener
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        humanChoice = button.id;
+    });
+    return;
+});
+
+console.log(humanChoice);
 
 // // Logic for the user's selection.
 // function getHumanChoice() {
