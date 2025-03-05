@@ -9,7 +9,7 @@ body {
 }
 
 #mainContainer {
-    width: 950px;
+    width: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,33 +21,33 @@ body {
 }
 
 #rock {
-    width: 300px;
-    height: 300px;
+    width: 325px;
+    height: 325px;
     margin: 5px;
     background-image: url(/home/npisani/repos/odin_project_RockPaperScissors/img/rock.png);
     background-size: cover;
     border: 1px solid black;
-    border-radius: 100px;
+    border-radius: 200px;
 }
 
 #paper {
-    width: 300px;
-    height: 300px;
+    width: 325px;
+    height: 325px;
     margin: 5px;
     background-image: url(/home/npisani/repos/odin_project_RockPaperScissors/img/paper.png);
     background-size: cover;
     border: 1px solid black;
-    border-radius: 100px;
+    border-radius: 200px;
 }
 
 #scissors {
-    width: 300px;
-    height: 300px;
+    width: 325px;
+    height: 325px;
     margin: 5px;
     background-image: url(/home/npisani/repos/odin_project_RockPaperScissors/img/scissors.png);
     background-size: cover;
     border: 1px solid black;
-    border-radius: 100px;
+    border-radius: 200px;
 }
 
 #messages {
