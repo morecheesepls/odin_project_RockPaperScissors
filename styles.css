@@ -1,3 +1,50 @@
 body {
+    background-color: black;
+}
+
+#mainContainer {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#selectionContainer {
+    display: flex;
+}
+
+#rock {
+    width: 200px;
+    height: 200px;
+    background-image: url(/home/npisani/repos/odin_project_RockPaperScissors/img/rock.png);
+    background-size: cover;
+}
+
+#paper {
+    width: 200px;
+    height: 200px;
+    background-image: url(/home/npisani/repos/odin_project_RockPaperScissors/img/paper.png);
+    background-size: cover;
+}
+
+#scissors {
+    width: 200px;
+    height: 200px;
+    background-image: url(/home/npisani/repos/odin_project_RockPaperScissors/img/scissors.png);
+    background-size: cover;
+}
+
+#messages {
     background-color: grey;
+    text-align: center;
+}
+
+#scoreBoard {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    align-items: center;
+    background-color: whitesmoke;
+    font-weight: 100;
+    font-size: 20px;
 }

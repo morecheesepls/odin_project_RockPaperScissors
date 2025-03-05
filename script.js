@@ -1,3 +1,8 @@
+
+
+
+
+
 function getComputerChoice() { // Logic for the computer's selection.
     let computerChoice = Math.floor(Math.random() * 3) + 1; // A random number is chosen between 1 and 3.
     
