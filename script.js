@@ -14,7 +14,7 @@ computerScoreboard.textContent = `Computer Score: ${computerScore}`;
 // Start the game and clear the scoreboard
 const startGame = messages.addEventListener("click", () => {
     messages.textContent = "Round 1 has started! Please make your selection."
-    playGame();
+
 });
 
 // Logic for the computer's selection.
@@ -33,19 +33,21 @@ function getComputerChoice() {
 }
 
 // Selection Button Event Listener
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        humanChoice = button.id;
+function getHumanChoice() {
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            humanChoice = button.id;
+            logButton(humanChoice);
+        });
+        
+        function logButton() {
+            console.log(humanChoice);
+        }
     });
-    return;
-});
-
-console.log(humanChoice);
+};
 
 // // Logic for the user's selection.
 // function getHumanChoice() {
-//     let humanChoice = prompt("Please choose 'Rock', 'Paper', or 'Scissors': ", " ").toLowerCase(); // Prompts the user to make a selection and converts the response to lowercase.
-
 //     return humanChoice;
 // }
 
