@@ -1,3 +1,5 @@
+
+
 function getComputerChoice() { // Logic for the computer's selection.
     let computerChoice = Math.floor(Math.random() * 3) + 1; // A random number is chosen between 1 and 3.
     
@@ -12,19 +14,26 @@ function getComputerChoice() { // Logic for the computer's selection.
     return computerChoice;
 }
 
-function getHumanChoice() { // Logic for the user's selection.
-    let humanChoice = prompt("Please choose 'Rock', 'Paper', or 'Scissors': ", " ").toLowerCase(); // Prompts the user to make a selection and converts the response to lowercase.
+// function getHumanChoice() { // Logic for the user's selection.
+//     let humanChoice = prompt("Please choose 'Rock', 'Paper', or 'Scissors': ", " ").toLowerCase(); // Prompts the user to make a selection and converts the response to lowercase.
 
-    return humanChoice;
-}
+//     return humanChoice;
+// }
 
+function getHumanChoice() {
+    const button = document.querySelectorAll("button").forEach(button => {
+            button.addEventListener("click", function() {
+                humanChoice = console.log(button.id);
+                playRound(humanChoice, computerChoice);
+            });
+        });
+};
 
-function playGame() { // Gameplay Logic
     let computerChoice = getComputerChoice();
-    let humanChoice = getHumanChoice();
+    let humanChoice;
     let humanScore = 0;
     let computerScore = 0;
-        
+    
     let playRound = function(humanChoice, computerChoice) { // Logic for the response comparisons.
         if ( // Conditions for the computer to win.
                 humanChoice === "rock" && computerChoice === "paper" || 
@@ -45,21 +54,21 @@ function playGame() { // Gameplay Logic
             };
     };
         
-        // Gameplay Rounds
-        console.log('Round 1! FIGHT!!!');
-        console.log(playRound(humanChoice, computerChoice));
+        // // Gameplay Rounds
+        // console.log('Round 1! FIGHT!!!');
+        // console.log(playRound(humanChoice, computerChoice));
         
-        console.log('Round 2! FIGHT!!!');
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
+        // console.log('Round 2! FIGHT!!!');
+        // console.log(playRound(getHumanChoice(), getComputerChoice()));
         
-        console.log('Round 3! FIGHT!!!');
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
+        // console.log('Round 3! FIGHT!!!');
+        // console.log(playRound(getHumanChoice(), getComputerChoice()));
         
-        console.log('Round 4! FIGHT!!!');
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
+        // console.log('Round 4! FIGHT!!!');
+        // console.log(playRound(getHumanChoice(), getComputerChoice()));
         
-        console.log('Round 5! FIGHT!!!');
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
+        // console.log('Round 5! FIGHT!!!');
+        // console.log(playRound(getHumanChoice(), getComputerChoice()));
 
         function winner (humanScore, computerScore) { // Announce Winner Logic
             if (humanScore > computerScore) {
@@ -71,6 +80,5 @@ function playGame() { // Gameplay Logic
             };
         };
         console.log(winner(humanScore, computerScore));
-    };
 
-playGame();
+        getHumanChoice();
