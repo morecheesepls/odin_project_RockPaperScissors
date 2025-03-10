@@ -1,24 +1,4 @@
-const messages = document.querySelector("#messages");
-const playerScoreboard = document.querySelector("#player");
-const computerScoreboard = document.querySelector("#computer");
-const buttons = document.querySelectorAll("button");
-let humanChoice;
-let gameStatusMessage;
-let playerScore = 0;
-let computerScore = 0;
-
-// Scoreboard
-playerScoreboard.textContent = `Player Score: ${playerScore}`;
-computerScoreboard.textContent = `Computer Score: ${computerScore}`;
-
-// Start the game and clear the scoreboard
-const startGame = messages.addEventListener("click", () => {
-    messages.textContent = "Round 1 has started! Please make your selection."
-
-});
-
-// Logic for the computer's selection.
-function getComputerChoice() { 
+function getComputerChoice() { // Logic for the computer's selection.
     let computerChoice = Math.floor(Math.random() * 3) + 1; // A random number is chosen between 1 and 3.
     
     if (computerChoice === 1) { // Converts the numerical selection to a string.
@@ -32,31 +12,18 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-// Selection Button Event Listener
-function getHumanChoice() {
-    buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            humanChoice = button.id;
-            logButton(humanChoice);
-        });
-        
-        function logButton() {
-            console.log(humanChoice);
-        }
-    });
-};
+function getHumanChoice() { // Logic for the user's selection.
+    let humanChoice = prompt("Please choose 'Rock', 'Paper', or 'Scissors': ", " ").toLowerCase(); // Prompts the user to make a selection and converts the response to lowercase.
 
-// // Logic for the user's selection.
-// function getHumanChoice() {
-//     return humanChoice;
-// }
+    return humanChoice;
+}
 
-// Gameplay Logic
-function playGame() { 
+
+function playGame() { // Gameplay Logic
     let computerChoice = getComputerChoice();
     let humanChoice = getHumanChoice();
-    playerScore = 0;
-    computerScore = 0;
+    let humanScore = 0;
+    let computerScore = 0;
         
     let playRound = function(humanChoice, computerChoice) { // Logic for the response comparisons.
         if ( // Conditions for the computer to win.
@@ -78,6 +45,22 @@ function playGame() {
             };
     };
         
+        // Gameplay Rounds
+        console.log('Round 1! FIGHT!!!');
+        console.log(playRound(humanChoice, computerChoice));
+        
+        console.log('Round 2! FIGHT!!!');
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+        
+        console.log('Round 3! FIGHT!!!');
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+        
+        console.log('Round 4! FIGHT!!!');
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+        
+        console.log('Round 5! FIGHT!!!');
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
+
         function winner (humanScore, computerScore) { // Announce Winner Logic
             if (humanScore > computerScore) {
                 return (`The game is over! The player has ${humanScore} points and the computer has ${computerScore} points. The player wins the game!`);
@@ -89,3 +72,5 @@ function playGame() {
         };
         console.log(winner(humanScore, computerScore));
     };
+
+playGame();

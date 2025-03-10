@@ -35,18 +35,4 @@ function buttonSetup() {
 buttonSetup();
 
 
-gameplay loop:
-player score variable
-computer score variable
-player selection variable
-
-Press messages button to start
-	reset scores to 0
-	display message telling player to choose
-	
-player selects a button
-	attach an event listener to all buttons for a mouse click
-	start the round when the user makes a selection
-	store the user's selection
-	
-get the comp's selection (function should still work?)
+1. 

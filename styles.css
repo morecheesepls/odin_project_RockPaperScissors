@@ -24,7 +24,7 @@ body {
     width: 325px;
     height: 325px;
     margin: 5px;
-    background-image: url(/home/npisani/repos/odin_project_RockPaperScissors/img/rock.png);
+    background-image: url(./img/rock.png);
     background-size: cover;
     border: 1px solid black;
     border-radius: 200px;
@@ -34,7 +34,7 @@ body {
     width: 325px;
     height: 325px;
     margin: 5px;
-    background-image: url(/home/npisani/repos/odin_project_RockPaperScissors/img/paper.png);
+    background-image: url(./img/paper.png);
     background-size: cover;
     border: 1px solid black;
     border-radius: 200px;
@@ -44,7 +44,7 @@ body {
     width: 325px;
     height: 325px;
     margin: 5px;
-    background-image: url(/home/npisani/repos/odin_project_RockPaperScissors/img/scissors.png);
+    background-image: url(./img/scissors.png);
     background-size: cover;
     border: 1px solid black;
     border-radius: 200px;
