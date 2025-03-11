@@ -20,7 +20,7 @@ function getComputerChoice() { // Logic for the computer's selection.
     return computerChoice;
 };
 
-function getHumanChoice() {
+function getHumanChoice() { // Adds event listeners to button elements and starts/continues gameplay when a button is clicked.
     const buttons = document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", () => {
             humanChoice = button.id;
@@ -60,24 +60,6 @@ function playRound(humanChoice, computerChoice) { // Logic for the response comp
         };
 };
 
-getHumanChoice();
-
-        // // Gameplay Rounds
-        // console.log('Round 1! FIGHT!!!');
-        // console.log(playRound(humanChoice, computerChoice));
-        
-        // console.log('Round 2! FIGHT!!!');
-        // console.log(playRound(getHumanChoice(), getComputerChoice()));
-        
-        // console.log('Round 3! FIGHT!!!');
-        // console.log(playRound(getHumanChoice(), getComputerChoice()));
-        
-        // console.log('Round 4! FIGHT!!!');
-        // console.log(playRound(getHumanChoice(), getComputerChoice()));
-        
-        // console.log('Round 5! FIGHT!!!');
-        // console.log(playRound(getHumanChoice(), getComputerChoice()));
-
 function winner (humanScore, computerScore) { // Announce Winner Logic
     if (humanScore > computerScore) {
         gameText.textContent = `The game is over! The player has ${humanScore} points and the computer has ${computerScore} points. The player wins the game!`;
@@ -87,3 +69,5 @@ function winner (humanScore, computerScore) { // Announce Winner Logic
         rgameText.textContent = `The game is over! The player has ${humanScore} points and the computer has ${computerScore} points. The game ends in a tie!`;
     };
 };
+
+getHumanChoice();
