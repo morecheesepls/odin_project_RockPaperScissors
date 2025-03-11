@@ -1,3 +1,6 @@
+const gameText = document.querySelector("#messages");
+const humanScoreBoard = document.querySelector("#player");
+const computerScoreBoard = document.querySelector("#computer");
 let computerChoice = getComputerChoice();
 let humanChoice;
 let humanScore = 0;
@@ -21,28 +24,39 @@ function getHumanChoice() {
     const buttons = document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", () => {
             humanChoice = button.id;
+            let computerChoice = getComputerChoice();
             playRound(humanChoice, computerChoice);
         });
     });
 };
 
 function playRound(humanChoice, computerChoice) { // Logic for the response comparisons.
-    if ( // Conditions for the computer to win.
+        if (computerScore === 5 || humanScore === 5) {
+            winner(humanScore, computerScore);
+        } else if ( // Conditions for the computer to win.
             humanChoice === "rock" && computerChoice === "paper" || 
             humanChoice === "paper" && computerChoice === "scissors" ||
             humanChoice === "scissors" && computerChoice === "rock") {
             computerScore = computerScore + 1;
-            return console.log(`You lose! ${computerChoice} beats ${humanChoice}! The score is now Player: ${humanScore} vs Computer: ${computerScore}`);
+            gameText.textContent = `You lose! The Computer chose ${computerChoice} and the Player chose ${humanChoice}!`;
+            humanScoreBoard.textContent = `Player Score: ${humanScore}`
+            computerScoreBoard.textContent = `Computer Score: ${computerScore}`;
         } else if ( // Conditions for the user to win.
             humanChoice === "rock" && computerChoice === "scissors" ||
             humanChoice === "paper" && computerChoice === "rock" ||
             humanChoice === "scissors" && computerChoice === "paper") {
             humanScore = humanScore + 1;
-            return console.log(`You win! ${humanChoice} beats ${computerChoice}! The score is now Player: ${humanScore} vs Computer: ${computerScore}`);
+            gameText.textContent = `You win! The Player chose ${humanChoice} and the Computer chose ${computerChoice}!`;
+            humanScoreBoard.textContent = `Player Score: ${humanScore}`
+            computerScoreBoard.textContent = `Computer Score: ${computerScore}`;
         } else if (humanChoice === computerChoice) { // Condition for a tie.
-            return console.log(`It's a tie! ${computerChoice} is equal to ${humanChoice}! The score remains Player: ${humanScore} vs Computer: ${computerScore}`);
+            gameText.textContent = `It's a tie! The Computer chose ${computerChoice} and the Player chose ${humanChoice}!`;
+            humanScoreBoard.textContent = `Player Score: ${humanScore}`
+            computerScoreBoard.textContent = `Computer Score: ${computerScore}`;
         } else { // Invalid Selection
-            return console.log("Invalid selection. Please try again.");
+            gameText.textContent = "Invalid selection. Please try again.";
+            humanScoreBoard.textContent = `Player Score: ${humanScore}`
+            computerScoreBoard.textContent = `Computer Score: ${computerScore}`;
         };
 };
 
@@ -64,13 +78,12 @@ getHumanChoice();
         // console.log('Round 5! FIGHT!!!');
         // console.log(playRound(getHumanChoice(), getComputerChoice()));
 
-// function winner (humanScore, computerScore) { // Announce Winner Logic
-//     if (humanScore > computerScore) {
-//         return (`The game is over! The player has ${humanScore} points and the computer has ${computerScore} points. The player wins the game!`);
-//     } else if (humanScore < computerScore) {
-//         return (`The game is over! The player has ${humanScore} points and the computer has ${computerScore} points. The computer wins the game!`);
-//     } else {
-//         return (`The game is over! The player has ${humanScore} points and the computer has ${computerScore} points. The game ends in a tie!`);
-//     };
-// };
-// console.log(winner(humanScore, computerScore));
+function winner (humanScore, computerScore) { // Announce Winner Logic
+    if (humanScore > computerScore) {
+        gameText.textContent = `The game is over! The player has ${humanScore} points and the computer has ${computerScore} points. The player wins the game!`;
+    } else if (humanScore < computerScore) {
+        gameText.textContent = `The game is over! The player has ${humanScore} points and the computer has ${computerScore} points. The computer wins the game!`;
+    } else {
+        rgameText.textContent = `The game is over! The player has ${humanScore} points and the computer has ${computerScore} points. The game ends in a tie!`;
+    };
+};
